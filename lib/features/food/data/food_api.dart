@@ -2,30 +2,23 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+import '../../../core/network/api_config.dart';
 import '../domain/food_model.dart';
 
 class FoodApi {
-  final String baseUrl = 'http://localhost:3000';
-
   Future<List<FoodItem>> getFoodList() async {
-    final uri = Uri.parse('$baseUrl/foods');
+    final uri = Uri.parse('${ApiConfig.baseUrl}/foods');
 
     final response = await http.get(
       uri,
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: {'Content-Type': 'application/json'},
     );
 
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body);
 
       return data
-          .map(
-            (item) => FoodItem.fromJson(
-              item as Map<String, dynamic>,
-            ),
-          )
+          .map((item) => FoodItem.fromJson(item as Map<String, dynamic>))
           .toList();
     }
 

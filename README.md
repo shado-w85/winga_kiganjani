@@ -1,17 +1,16 @@
-# winga_kiganjani
+# Winga Kiganjani
 
-A new Flutter project.
+Campus commerce and financial inclusion Flutter app.
 
-## Getting Started
+## API configuration
 
-This project is a starting point for a Flutter application.
+Authentication and food catalog requests use `localhost:3000` on desktop, web,
+and iOS Simulator. On an Android Emulator, the default is `10.0.2.2:3000`,
+which routes to the host machine. Override the API origin at build time with
+`--dart-define=API_BASE_URL=https://your-api-host`.
 
-A few resources to get you started if this is your first Flutter project:
+Use an HTTPS API for release builds. Cleartext HTTP is enabled only for Android
+debug and profile builds to support local development.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+See the [Flutter documentation](https://docs.flutter.dev/) for SDK setup and
+platform-specific build requirements.
